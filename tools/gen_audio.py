@@ -12,6 +12,12 @@ import sys
 from pathlib import Path
 
 WEB = Path(__file__).resolve().parent.parent / "web"
+RETRIES = 5
+
+
+def timeout_for(text):
+    """Seconds per attempt: the free service randomly stalls, so fail fast on short text and retry."""
+    return 15 + len(text) / 10
 
 
 def jobs(content):
@@ -51,13 +57,18 @@ async def main():
             continue
         import edge_tts  # imported here so --dry-run works without the package
         path.parent.mkdir(parents=True, exist_ok=True)
-        try:
-            await edge_tts.Communicate(text, voice).save(str(path))
-            print("ok  ", rel)
-        except Exception as e:  # keep going after a failure (Req 4.4)
-            path.unlink(missing_ok=True)  # never leave a half-written file that would be skipped next run
+        tmp = path.with_suffix(".part")  # write then rename: a killed run never leaves a file that gets skipped
+        for attempt in range(1, RETRIES + 1):  # the free service randomly stalls; a fresh request usually works
+            try:
+                await asyncio.wait_for(edge_tts.Communicate(text, voice).save(str(tmp)), timeout_for(text))
+                tmp.replace(path)
+                print("ok  ", rel, flush=True)
+                break
+            except Exception as e:  # keep going after a failure (Req 4.4)
+                tmp.unlink(missing_ok=True)
+                print(f"retry {attempt}/{RETRIES}" if attempt < RETRIES else "FAIL", rel, repr(e), file=sys.stderr, flush=True)
+        else:
             failed.append(rel)
-            print("FAIL", rel, repr(e), file=sys.stderr)
     if failed:
         print(f"{len(failed)} file(s) failed: {', '.join(failed)}", file=sys.stderr)
         sys.exit(1)
