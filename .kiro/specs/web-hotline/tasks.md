@@ -16,7 +16,7 @@ Sau mỗi task phải cập nhật `.kiro/steering/codebase-graph.md`.
 ## Tasks
 
 - [ ] 1. Môi trường và nội dung
-  - [ ] 1.1 Tạo `.venv` và cài edge-tts
+  - [x] 1.1 Tạo `.venv` và cài edge-tts
     - Tạo venv bằng Python ở đường dẫn trong environment.md (KHÔNG dùng `python` trên PATH), sau đó `.venv\Scripts\python -m pip install edge-tts`
     - Kiểm tra: `.venv\Scripts\python -c "import edge_tts"` chạy không lỗi
     - Tạo `requirements.txt` gồm 1 dòng `edge-tts`

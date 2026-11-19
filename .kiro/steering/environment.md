@@ -28,7 +28,7 @@ d:\Duy\LVCF\DACD\Peptoc\.venv
 ## Correct invocation pattern
 ```powershell
 D:\Programs\Python\cpython-3.13.1-windows-x86_64-none\python.exe -m venv .venv   # chỉ chạy 1 lần
-.venv\Scripts\python -m pip install edge-tts
+.venv\Scripts\python -m pip install --no-cache-dir -r requirements.txt   # no-cache: tránh cache pip ở C
 .venv\Scripts\python tools\gen_audio.py                # tạo mp3
 .venv\Scripts\python -m http.server 8000 -d web        # chạy thử: http://localhost:8000
 ```
