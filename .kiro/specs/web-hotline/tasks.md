@@ -64,7 +64,7 @@ Sau mỗi task phải cập nhật `.kiro/steering/codebase-graph.md`.
   - Làm hết checklist trong design.md mục Testing Strategy. Ghi kết quả vào nhật ký trong codebase-graph.md
   - Tự động: `D:\Programs\nodejs\node.exe tools\smoke.mjs` (24 kiểm tra)
 
-- [ ] 5. Deploy free
+- [x] 5. Deploy free
   - [x] 5.1 Viết `render.yaml`
     - `type: web`, `runtime: static`, `buildCommand: echo no build`, `staticPublishPath: ./web`
     - _Requirements: 7.1, 7.5_
@@ -84,10 +84,10 @@ Sau mỗi task phải cập nhật `.kiro/steering/codebase-graph.md`.
       - các phương án tổng đài thật kèm giá tham khảo
     - _Requirements: 7.4, 7.6_
 
-  - [ ] 5.3 Kiểm dung lượng và hướng dẫn user đưa lên Render
+  - [x] 5.3 Kiểm dung lượng và hướng dẫn user đưa lên Render
     - Kiểm tra: tổng `web/` < 50MB
     - User tự làm 2 bước cần tài khoản: tạo repo GitHub và push; Render → New → Blueprint → chọn repo
     - Kiểm tra: mở link `*.onrender.com` trên điện thoại, bấm phím 1 có tiếng
     - _Requirements: 7.3, 7.5_
 
-- [ ] 6. Checkpoint: demo online chạy, gửi link cho người khác thử
+- [x] 6. Checkpoint: demo online chạy, gửi link cho người khác thử

@@ -42,10 +42,11 @@ graph TD
 
 ## 3. Trạng thái hiện tại
 - Spec đang làm: `web-hotline`
-- Phase: implement — 9/11 task (đếm task lá + checkpoint)
-- Task kế tiếp: 5.3 deploy Render — CHỜ USER: đăng nhập render.com bằng GitHub → New → Blueprint → repo `duong-day-vui-ve` → Apply. Sau đó agent kiểm link `*.onrender.com` bằng smoke.mjs rồi đánh dấu 5.3 + 6.
+- Phase: XONG — 11/11 task. Demo live: https://duong-day-vui-ve.onrender.com (Render Static Site free, Blueprint `duong-day-vui-ve`, auto-deploy khi push `main`).
+- Việc mở cho sau (chưa có spec): thay câu nói thật / xin phép Peptoc, thu âm giọng trẻ em (đặc biệt phím 4), tên chính thức, số tổng đài thật (có phí).
 
 ## 4. Nhật ký tiến độ (mới nhất ở trên)
+- 2026-11-20 — Task 5.3 + 6 xong: agent tạo Blueprint trên Render qua Chrome (user tự đăng nhập). Live commit 65b57eb, smoke.mjs trên link thật 24/24 PASS.
 - 2026-11-20 — Theo yêu cầu user: xoá luôn 111 và 115 → trang KHÔNG có số điện thoại nào. Bỏ `help` khỏi content.json, app.js, index.html; Req 5.1 đổi thành "SHALL NOT hiển thị số"; smoke test kiểm không có `tel:`.
 - 2026-11-20 — Theo yêu cầu user: GỠ số Ngày Mai (số của tổ chức khác, chưa xin phép). Khối help chỉ còn 111, 115. Sửa Req 5.1, design, tasks, README, smoke test.
 - 2026-11-19 — Task 5.1 + 5.2 xong: render.yaml, README (chạy, test, sửa câu, giọng thật, đổi tên, deploy Render/Cloudflare, bảng giới hạn + giá). web/ = 835KB (< 50MB). Đã push GitHub.
