@@ -26,7 +26,7 @@ Sau mỗi task phải cập nhật `.kiro/steering/codebase-graph.md`.
     - Các field: `brand`, `note`, `voice`, `greeting`, `options` (0–7), `help`
     - Phím 1–7 có ≥3 câu tiếng Việt viết lại theo tinh thần menu Peptoc. Phím 5 viết tiếng Anh, `voice` = `en-US-AnaNeural`, `lang` = `en-US`
     - Phím 0 có lời cảm ơn và `info` = "Thông tin ủng hộ: đang cập nhật."
-    - `help`: 111, 115, Ngày Mai 0963061414
+    - `help`: 111, 115 (chỉ số công cộng)
     - Kiểm tra: `.venv\Scripts\python -c "import json;json.load(open('web/content.json',encoding='utf-8'))"`
     - _Requirements: 2.1, 2.2, 2.5, 5.1, 5.4, 5.5_
 

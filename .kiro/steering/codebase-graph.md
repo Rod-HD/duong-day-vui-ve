@@ -46,6 +46,7 @@ graph TD
 - Task kế tiếp: 5.3 deploy Render — CHỜ USER: đăng nhập render.com bằng GitHub → New → Blueprint → repo `duong-day-vui-ve` → Apply. Sau đó agent kiểm link `*.onrender.com` bằng smoke.mjs rồi đánh dấu 5.3 + 6.
 
 ## 4. Nhật ký tiến độ (mới nhất ở trên)
+- 2026-11-20 — Theo yêu cầu user: GỠ số Ngày Mai (số của tổ chức khác, chưa xin phép). Khối help chỉ còn 111, 115. Sửa Req 5.1, design, tasks, README, smoke test.
 - 2026-11-19 — Task 5.1 + 5.2 xong: render.yaml, README (chạy, test, sửa câu, giọng thật, đổi tên, deploy Render/Cloudflare, bảng giới hạn + giá). web/ = 835KB (< 50MB). Đã push GitHub.
 - 2026-11-19 — Task 3 + 4 xong: index.html/style.css/app.js; smoke test 24/24 PASS (ổn định 3 lần), xem ảnh 360px sáng/tối OK. Thêm `tools/smoke.mjs`.
 - 2026-11-19 — Task 2 xong: 25 mp3 (824KB), chạy lại = skip 25. edge-tts free hay treo ngẫu nhiên → thêm timeout theo độ dài câu + 5 lần retry + ghi file tạm `.part`.

@@ -97,8 +97,7 @@ graph TD
   },
   "help": [
     { "name": "Tổng đài quốc gia bảo vệ trẻ em", "phone": "111" },
-    { "name": "Cấp cứu", "phone": "115" },
-    { "name": "Đường dây Ngày Mai (hỗ trợ trầm cảm)", "phone": "0963061414" } // gọi thử trước khi công khai
+    { "name": "Cấp cứu", "phone": "115" } // chỉ số công cộng; số tổ chức tư nhân cần xin phép
   ]
 }
 ```

@@ -86,7 +86,7 @@ Phiên bản demo dùng câu nói phỏng theo tinh thần menu của Peptoc, d�
 
 #### Acceptance Criteria
 
-1. THE Hotline Web SHALL hiển thị khối "Cần giúp đỡ ngay?" với các số khẩn cấp Việt Nam (111 Tổng đài quốc gia bảo vệ trẻ em, 115 cấp cứu, cùng đường dây hỗ trợ tâm lý đã kiểm chứng).
+1. THE Hotline Web SHALL hiển thị khối "Cần giúp đỡ ngay?" với các số khẩn cấp Việt Nam (111 Tổng đài quốc gia bảo vệ trẻ em, 115 cấp cứu). Chỉ dùng tổng đài công cộng; số của tổ chức tư nhân chỉ thêm khi đã được họ cho phép.
 2. THE Hotline Web SHALL ghi "Lấy cảm hứng từ Peptoc (peptoc.org), dự án của học sinh West Side Elementary, Healdsburg, California" kèm link.
 3. THE Hotline Web SHALL ghi rõ đây là bản demo, câu nói là bản phỏng dịch tạm.
 4. WHEN người dùng bấm Phím 0, THE Hotline Web SHALL phát lời cảm ơn và hiện thông tin ủng hộ (demo: "đang cập nhật").
