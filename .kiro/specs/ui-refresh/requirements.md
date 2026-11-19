@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Làm lại giao diện `web/` theo thiết kế Stitch, gồm project `13630802284968747190` và screen `e07b56b51a124002b200026873194b5a`. Trang mới trông như một ứng dụng gọi điện dễ thương, có hiệu ứng chuyển động đầy đủ.
+Làm lại giao diện `web/` theo bố cục của thiết kế Stitch, gồm project `13630802284968747190` và screen `e07b56b51a124002b200026873194b5a`. **Màu chủ đạo đổi sang xanh dương** theo yêu cầu của user ngày 2026-11-20. Thêm **PWA** (cài trang vào màn hình chính, nghe được khi offline) và **mã QR** để in poster. Đây là cách thay số điện thoại mà không tốn phí. Trang mới trông như một ứng dụng gọi điện dễ thương, có hiệu ứng chuyển động đầy đủ.
 
 Logic hiện có giữ nguyên:
 - `content.json` là nguồn nội dung
@@ -47,7 +47,7 @@ Logic hiện có giữ nguyên:
 
 #### Acceptance Criteria
 
-1. WHEN một lời nhắn bắt đầu phát, THE thẻ cuộc gọi SHALL hiện chip "Đang nghe: Phím N — <label>", chạy đồng hồ mm:ss, bật sóng âm và vòng sáng quanh mascot.
+1. WHEN một lời nhắn bắt đầu phát, THE thẻ cuộc gọi SHALL hiện chip "Đang nghe · Phím N" kèm dòng chủ đề `<label>`, chạy đồng hồ mm:ss, bật sóng âm và vòng sáng quanh mascot.
 2. WHEN bấm "Gọi", THE chip SHALL hiện "Đang kết nối…" rồi "Lời chào", và phát lời chào.
 3. WHEN audio phát xong hoặc người dùng bấm "Kết thúc", THE Hotline Web SHALL dừng âm thanh và đồng hồ, tắt sóng âm, và chip hiện "Đã kết thúc".
 4. WHILE một phím đang phát, THE phím đó và dòng tương ứng trong danh mục SHALL được làm nổi bật, và dòng danh mục SHALL hiện nhãn "Đang phát".
@@ -76,7 +76,7 @@ Logic hiện có giữ nguyên:
 3. WHEN phụ đề đổi, THE phụ đề SHALL hiện ra bằng hiệu ứng fade và trượt lên.
 4. WHILE trạng thái là `playing`, THE sóng âm SHALL nhấp nhô và mascot SHALL có vòng sáng lan ra.
 5. THE doodle nền SHALL trôi chậm.
-6. THE animation SHALL chỉ dùng `transform` và `opacity`.
+6. THE keyframe animation SHALL chỉ dùng `transform` và `opacity`. Riêng hiệu ứng lún khi bấm nút/phím được phép đổi `box-shadow` (bóng cứng của phong cách neo-brutalist).
 7. WHERE bật reduced motion, THE Hotline Web SHALL tắt mọi chuyển động nhưng giữ nguyên màu báo trạng thái.
 
 ---
@@ -92,5 +92,30 @@ Logic hiện có giữ nguyên:
 3. THE Hotline Web SHALL không tải tài nguyên ngoài origin (không Google Fonts, không ảnh CDN).
 4. THE tổng `index.html` + `style.css` + `app.js` SHALL dưới 60KB.
 5. THE chữ chính SHALL đạt độ tương phản WCAG AA.
+
+---
+
+### Requirement 6: PWA
+
+**User Story:** As a người dùng điện thoại, I want cài trang như một app gọi điện, so that tôi mở nhanh như mở một đường dây.
+
+#### Acceptance Criteria
+
+1. THE Hotline Web SHALL có `manifest.webmanifest` (name, short_name, start_url, `display: standalone`, theme_color xanh dương, icon 192/512 PNG, apple-touch-icon).
+2. THE Hotline Web SHALL đăng ký `sw.js`. Service worker ưu tiên lấy bản mới từ mạng, và dùng bản đã lưu khi mất mạng. Khi cài, nó lưu sẵn giao diện và toàn bộ mp3 lấy từ `content.json`.
+3. WHEN trình duyệt bắn sự kiện `beforeinstallprompt`, THE Hotline Web SHALL hiện nút "Cài vào màn hình chính". WHERE là iPhone/iPad và chưa cài, THE Hotline Web SHALL hiện hướng dẫn "Chia sẻ → Thêm vào MH chính".
+4. IF mất mạng sau lần mở đầu, THEN THE Hotline Web SHALL vẫn mở được và phát được audio.
+
+---
+
+### Requirement 7: Mã QR
+
+**User Story:** As a chủ dự án, I want một mã QR để in, so that người khác quét mã là vào đường dây, không cần số điện thoại.
+
+#### Acceptance Criteria
+
+1. THE script `tools/make_qr.py` SHALL tạo `web/qr.svg` trỏ tới URL demo, mặc định là `https://duong-day-vui-ve.onrender.com/`.
+2. WHERE màn hình rộng ≥ 768px, THE Hotline Web SHALL hiện thẻ "Quét để mở trên điện thoại" có mã QR.
+3. THE `web/poster.html` SHALL là trang in A5 gồm tên, mascot, QR, lời mời và URL. Footer SHALL có link tới trang này.
 
 ---

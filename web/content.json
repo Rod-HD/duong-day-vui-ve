@@ -7,6 +7,7 @@
   "options": {
     "1": {
       "label": "Nếu bạn đang bực bội, nản lòng hay lo lắng",
+      "short": "Bực bội",
       "messages": [
         "Nếu bạn đang bực mình, hãy hít thật sâu, đếm đến mười, rồi thở ra thật chậm nhé. Bạn làm được mà!",
         "Lo lắng cũng không sao đâu. Bạn ra ngoài nhìn bầu trời một chút, rồi mọi chuyện sẽ ổn hơn.",
@@ -16,6 +17,7 @@
     },
     "2": {
       "label": "Lời khuyên cuộc sống",
+      "short": "Lời khuyên",
       "messages": [
         "Hãy ăn rau nhé, rau giúp bạn khỏe và vui hơn.",
         "Nếu bạn làm sai, cứ nói xin lỗi rồi làm lại. Ai cũng có lúc sai mà.",
@@ -25,6 +27,7 @@
     },
     "3": {
       "label": "Các bé mẫu giáo cổ vũ bạn",
+      "short": "Bé cổ vũ",
       "messages": [
         "Bạn giỏi lắm! Cố lên nha!",
         "Con tin bạn làm được! Cố lên, cố lên!",
@@ -33,6 +36,7 @@
     },
     "4": {
       "label": "Tiếng cười giòn tan của trẻ em",
+      "short": "Tiếng cười",
       "messages": [
         "Hi hi hi! Ha ha ha!",
         "Ha ha ha ha! Hi hi!",
@@ -41,6 +45,7 @@
     },
     "5": {
       "label": "Lời cổ vũ bằng tiếng Anh",
+      "short": "English",
       "voice": "en-US-AnaNeural",
       "lang": "en-US",
       "messages": [
@@ -51,6 +56,7 @@
     },
     "6": {
       "label": "Nghe xem bạn trông tuyệt vời thế nào",
+      "short": "Bạn đẹp",
       "messages": [
         "Hôm nay bạn trông xinh lắm luôn!",
         "Kiểu tóc của bạn đẹp quá trời!",
@@ -59,6 +65,7 @@
     },
     "7": {
       "label": "Thêm lời khuyên",
+      "short": "Thêm",
       "messages": [
         "Nếu bạn thấy buồn, hãy ôm một người bạn thương.",
         "Đừng ngại hỏi khi bạn không biết. Hỏi là cách để học.",
@@ -67,6 +74,7 @@
     },
     "0": {
       "label": "Ủng hộ dự án",
+      "short": "Ủng hộ",
       "messages": [
         "Cảm ơn bạn đã muốn ủng hộ {brand}! Thông tin ủng hộ đang được cập nhật."
       ],

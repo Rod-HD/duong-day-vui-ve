@@ -2,38 +2,114 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Bấm số để nghe lời động viên từ các bạn nhỏ.">
+  <meta name="theme-color" content="#1F4FD8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Vui Vẻ">
   <title>Đang tải…</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
 </head>
-<body>
-  <main class="phone">
-    <header>
-      <h1 id="brand">…</h1>
-      <p class="tag">Bấm số để nghe lời động viên từ các bạn nhỏ</p>
-    </header>
+<body data-state="idle">
+  <!-- Shared SVG filter: makes clean vector strokes wobble like a marker drawing. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
+  </svg>
 
-    <div id="screen" class="screen" aria-live="polite">Bấm "Gọi" để nghe hướng dẫn, hoặc chọn một số bên dưới.</div>
+  <div class="doodles" aria-hidden="true">
+    <svg class="dd d-star" viewBox="0 0 40 40"><path d="M20 3l4.6 10.4 11.2 1.1-8.5 7.5 2.6 11-9.9-5.8-9.8 5.9 2.4-11.1L4 14.6l11.3-1.2z"/></svg>
+    <svg class="dd d-heart" viewBox="0 0 40 40"><path d="M20 35C8 26 3 19 4.5 12.5 6 6.5 14 5 20 12c5.5-7.2 14-5.4 15.4.6C37 19.4 31.6 26.3 20 35z"/></svg>
+    <svg class="dd d-squiggle" viewBox="0 0 120 30"><path d="M3 18c10-14 18-14 24 0s15 14 23 0 16-14 23 0 16 13 24-1 13-11 20 2"/></svg>
+    <svg class="dd d-star2" viewBox="0 0 40 40"><path d="M20 5v30M5 20h30M9 9l22 22M31 9L9 31"/></svg>
+    <svg class="dd d-cloud" viewBox="0 0 80 44"><path d="M16 38c-9 0-13-6-11-12 2-5 7-7 11-5 1-9 9-15 18-12 4-6 14-7 19 0 7-2 15 3 14 11 7 1 10 6 8 12-1 4-5 6-9 6z"/></svg>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div id="fx" aria-hidden="true"></div>
 
-    <div id="keypad" class="keypad" role="group" aria-label="Bàn phím số"></div>
-    <button id="call" class="call" type="button">📞 Gọi</button>
+  <div class="layout">
+    <main class="app">
+      <header class="mast">
+        <p class="kicker mono">Đường dây nóng · bản demo</p>
+        <h1 id="brand">…</h1>
+        <p class="tag">Bấm số để nghe lời động viên từ các bạn nhỏ</p>
+        <svg class="mast-sun" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="12"/><path d="M30 4v9M30 47v9M4 30h9M47 30h9M11 11l6 6M43 43l6 6M11 49l6-6M43 17l6-6"/></svg>
+      </header>
 
-    <section aria-labelledby="menu-title">
-      <h2 id="menu-title">Bấm số…</h2>
-      <ol id="menu" class="menu"></ol>
-    </section>
-  </main>
+      <section class="call panel" aria-label="Màn hình cuộc gọi">
+        <div class="onair" aria-hidden="true"></div>
+        <div class="call-top mono">
+          <span class="rec"><i aria-hidden="true"></i><span id="timer">00:00</span></span>
+          <span id="status" class="status">Sẵn sàng</span>
+        </div>
+        <div class="caller">
+          <div class="mascot" aria-hidden="true">
+            <span class="ring"></span><span class="ring r2"></span>
+            <svg class="sun" viewBox="0 0 120 120">
+              <g class="rays"><path d="M60 5v15M60 101v13M5 61h14M101 59h15M21 20l11 11M89 90l10 10M20 99l11-10M88 31l11-11"/></g>
+              <g class="face">
+                <circle class="disc" cx="60" cy="60" r="33"/>
+                <circle class="cheek" cx="43" cy="68" r="5"/><circle class="cheek" cx="77" cy="68" r="5"/>
+                <g class="eyes"><circle cx="49" cy="54" r="4.2"/><circle cx="71" cy="54" r="4.2"/></g>
+                <path class="mouth" d="M47 67q13 13 26 0"/>
+              </g>
+            </svg>
+          </div>
+          <div class="said">
+            <p id="topic" class="topic mono"></p>
+            <p id="screen" class="caption" aria-live="polite">Bấm “Gọi” để nghe hướng dẫn, hoặc chọn một số bên dưới.</p>
+          </div>
+        </div>
+        <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </section>
 
-  <aside class="help" aria-labelledby="help-title">
-    <h2 id="help-title">Cần giúp đỡ ngay?</h2>
-    <p>Trang này chỉ để động viên, không thay thế hỗ trợ chuyên môn. Nếu bạn hoặc ai đó đang gặp nguy hiểm, hãy tìm đến người thân hoặc cơ sở y tế gần nhất.</p>
-  </aside>
+      <section class="pad" aria-label="Bàn phím">
+        <p class="hint hand" aria-hidden="true">bấm thử đi!
+          <svg viewBox="0 0 60 40"><path d="M4 6c18 2 34 10 44 26M48 32l-1-11M48 32l-10-4"/></svg>
+        </p>
+        <div id="keypad" class="keypad" role="group" aria-label="Bàn phím số"></div>
+        <div class="actions">
+          <button id="call" class="btn call-btn" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+            <span>Gọi</span>
+          </button>
+          <button id="end" class="btn end-btn" type="button" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+            <span>Kết thúc</span>
+          </button>
+        </div>
+      </section>
 
-  <footer>
-    <p>Lấy cảm hứng từ <a href="https://www.peptoc.org/hotline" rel="noopener">Peptoc</a>, dự án của học sinh West Side Elementary, Healdsburg, California.</p>
-    <p>Đây là bản demo. Các câu nói là bản phỏng dịch tạm, giọng đọc tạo bằng máy.</p>
-  </footer>
+      <section class="topics" aria-labelledby="topics-title">
+        <h2 id="topics-title">Chọn chủ đề</h2>
+        <ol id="menu" class="menu"></ol>
+      </section>
+    </main>
+
+    <aside class="side">
+      <section class="qr sticker" aria-labelledby="qr-title">
+        <img src="qr.svg" width="160" height="160" alt="Mã QR mở trang Đường Dây Vui Vẻ">
+        <p id="qr-title" class="hand">Quét để mở trên điện thoại</p>
+      </section>
+
+      <div class="install">
+        <button id="install" class="btn install-btn" type="button" hidden>Cài vào màn hình chính</button>
+        <p id="ios-hint" class="ios-hint" hidden>Trên iPhone: bấm <b>Chia sẻ</b> → <b>Thêm vào MH chính</b> để dùng như một app.</p>
+      </div>
+
+      <section class="help panel" aria-labelledby="help-title">
+        <h2 id="help-title"><svg class="heart" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 35C8 26 3 19 4.5 12.5 6 6.5 14 5 20 12c5.5-7.2 14-5.4 15.4.6C37 19.4 31.6 26.3 20 35z"/></svg>Cần giúp đỡ ngay?</h2>
+        <p>Trang này chỉ để động viên, không thay thế hỗ trợ chuyên môn. Nếu bạn hoặc ai đó đang gặp nguy hiểm, hãy tìm đến người thân hoặc cơ sở y tế gần nhất.</p>
+      </section>
+
+      <footer class="mono">
+        <p>Lấy cảm hứng từ <a href="https://www.peptoc.org/hotline" rel="noopener">Peptoc</a>, dự án của học sinh West Side Elementary, Healdsburg, California.</p>
+        <p>Bản demo · câu nói phỏng dịch tạm · giọng đọc tạo bằng máy · <a href="poster.html">In poster QR</a></p>
+      </footer>
+    </aside>
+  </div>
 </body>
 </html>

@@ -22,12 +22,34 @@ Trang web giả lập một đường dây nóng. Người dùng bấm số trê
 ```
 web/                 ← thư mục deploy (site tĩnh, không backend)
   index.html  style.css  app.js
-  content.json       ← nơi DUY NHẤT chứa tên và câu nói
+  content.json       ← nơi DUY NHẤT chứa tên, câu nói, nhãn ngắn trên phím
   audio/greeting.mp3, audio/<phím>/<thứ tự>.mp3
+  manifest.webmanifest  sw.js  icons/   ← PWA: cài lên màn hình chính, nghe offline
+  qr.svg  poster.html                   ← mã QR + trang in poster A5
 tools/gen_audio.py   ← tạo mp3 từ content.json bằng edge-tts
+tools/make_qr.py     ← tạo web/qr.svg
+tools/icon.svg       ← bản gốc icon app
+tools/smoke.mjs      ← 45 kiểm tra tự động
 render.yaml          ← cấu hình deploy free lên Render
 .kiro/               ← spec (requirements/design/tasks) + codebase-graph tiến độ
 ```
+
+## Thay số điện thoại bằng QR + app (0đ)
+
+- **Mã QR:** in trang `poster.html` (link "In poster QR" ở cuối trang). Người khác quét mã là vào đường dây, không cần số điện thoại.
+- **Cài như app:** trên Android hoặc máy tính chạy Chrome/Edge, bấm nút "Cài vào màn hình chính". Trên iPhone, bấm Chia sẻ → Thêm vào MH chính. Sau lần mở đầu tiên, app vẫn chạy và phát được audio kể cả khi mất mạng.
+- Nếu đổi link demo, tạo lại mã QR:
+  ```powershell
+  .venv\Scripts\python tools\make_qr.py https://link-moi/
+  ```
+- Nếu sửa `tools/icon.svg`, tạo lại các file icon PNG bằng Chromium có sẵn trong `D:\Programs\ms-playwright`, dùng chế độ `--headless=old` và `--force-device-scale-factor=1`. Có thể nhờ agent làm bước này.
+- Khi đổi danh sách file giao diện, tăng số phiên bản `CACHE` trong `web/sw.js` để app đã cài lấy bản mới.
+
+## Giao diện
+
+Phong cách neo-brutalist (giống Gumroad) kết hợp zine in risograph 2 màu xanh dương và vàng. Giao diện có viền mực, bóng đổ cứng, giấy có hạt, nét vẽ tay và ghi chú viết tay. Không dùng gradient, emoji, ảnh người hay font tải ngoài.
+
+Mọi animation tự tắt khi người dùng bật "Giảm chuyển động" trong máy.
 
 ## Chạy thử trên máy (Windows, PowerShell)
 
@@ -52,7 +74,7 @@ Bật server ở trên, rồi chạy lệnh sau ở một cửa sổ PowerShell 
 D:\Programs\nodejs\node.exe tools\smoke.mjs
 ```
 
-Lệnh này chạy 24 kiểm tra:
+Lệnh này chạy 45 kiểm tra, trong đó có:
 - bàn phím và menu hiển thị đủ
 - mỗi phím phát đúng mp3
 - bấm lại cùng phím thì không lặp câu vừa nghe
