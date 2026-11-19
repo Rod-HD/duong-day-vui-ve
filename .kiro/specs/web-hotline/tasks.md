@@ -65,11 +65,11 @@ Sau mỗi task phải cập nhật `.kiro/steering/codebase-graph.md`.
   - Tự động: `D:\Programs\nodejs\node.exe tools\smoke.mjs` (24 kiểm tra)
 
 - [ ] 5. Deploy free
-  - [ ] 5.1 Viết `render.yaml`
+  - [x] 5.1 Viết `render.yaml`
     - `type: web`, `runtime: static`, `buildCommand: echo no build`, `staticPublishPath: ./web`
     - _Requirements: 7.1, 7.5_
 
-  - [ ] 5.2 Viết `README.md`
+  - [x] 5.2 Viết `README.md`
     - Nội dung:
       - chạy local
       - tạo audio

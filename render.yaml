@@ -1,0 +1,8 @@
+# Render Blueprint: deploys web/ as a free Static Site (Hobby workspace).
+# Render dashboard -> New -> Blueprint -> pick this repo -> Apply.
+services:
+  - type: web
+    name: duong-day-vui-ve
+    runtime: static
+    buildCommand: echo no build
+    staticPublishPath: ./web
