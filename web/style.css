@@ -10,7 +10,10 @@
   --pink: #F4A3B4;
   --rule: rgba(17, 17, 17, 0.14);
   --shadow: #111111;
-  --on-blue: #111111;
+  --on-blue: #FFFFFF;
+  /* white text on the light blue only reads well with an ink outline (sticker lettering) */
+  --outline: 1px 1px 0 #111, -1px -1px 0 #111, 1px -1px 0 #111, -1px 1px 0 #111;
+  --outline-bold: 2px 2px 0 #111, -1px -1px 0 #111, 1px -1px 0 #111, -1px 1px 0 #111;
   --hard: 4px 4px 0 var(--shadow);
   --spring: cubic-bezier(0.3, 1.7, 0.5, 1);
   --display: "Arial Black", "Segoe UI Black", "Helvetica Neue", system-ui, sans-serif;
@@ -130,9 +133,10 @@ body[data-state="ended"] .status::after { content: " ✓"; display: inline-block
 .topic { margin: 0 0 4px; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-blue); min-height: 1.5em; }
 .caption {
   margin: 0; white-space: pre-line;
-  font: 800 22px/1.25 var(--body); color: var(--on-blue);
+  font: 800 22px/1.25 var(--body); color: var(--on-blue); text-shadow: var(--outline-bold);
 }
-.caption.long { font-size: 15px; font-weight: 600; line-height: 1.45; }
+.topic, .rec { text-shadow: var(--outline); }
+.caption.long { font-size: 15px; font-weight: 700; line-height: 1.5; text-shadow: var(--outline); }
 
 .wave { display: flex; align-items: flex-end; justify-content: center; gap: 7px; height: 34px; }
 .wave i {
@@ -258,7 +262,7 @@ body.touched .hint { opacity: 0; transform: rotate(-5deg) translateY(-6px); tran
 @media (hover: hover) { .sticker:hover { transform: rotate(0deg) translateY(-3px); } }
 
 .install { display: grid; gap: 8px; justify-items: start; }
-.install-btn { background: var(--blue); color: var(--on-blue); font-size: 15px; min-height: 52px; }
+.install-btn { background: var(--blue); color: var(--on-blue); text-shadow: var(--outline); font-size: 15px; min-height: 52px; }
 .ios-hint { margin: 0; font-size: 14px; color: var(--muted); }
 
 .help { padding: 12px 16px 14px; }

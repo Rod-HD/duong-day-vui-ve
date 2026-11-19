@@ -19,7 +19,7 @@ Bảng màu (2 màu mực, xanh dương là chủ đạo):
 
 | Vai trò | Màu |
 |---|---|
-| Xanh key visual, xanh nhạt (user yêu cầu 2026-11-20). Chữ đặt trên màu này luôn là mực đen | `#60A5FA` |
+| Xanh key visual, xanh nhạt (user yêu cầu 2026-11-20). Chữ trên màu này là **trắng có viền mực** kiểu chữ sticker (`--outline`, `--outline-bold`), vì trắng trơn trên xanh nhạt chỉ đạt ~2.5:1 | `#60A5FA` |
 | Xanh dùng làm chữ hoặc link trên nền giấy (`--blue-ink`) | `#1F4FD8` (dark mode: `#8FB0FF`) |
 | Vàng hướng dương | `#FFD23F` |
 | Mực đen | `#111` |
