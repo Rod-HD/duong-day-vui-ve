@@ -1,0 +1,115 @@
+:root {
+  --bg: #fff7ef;
+  --card: #ffffff;
+  --ink: #2b2135;
+  --muted: #645870;
+  --accent: #e0457b;
+  --link: #b3175a;
+  --key: #ffe6ef;
+  --key-ink: #2b2135;
+  --screen: #2b2135;
+  --screen-ink: #fdf3b5;
+  --call: #15803d;
+  --ring: #f59e0b;
+  --help-bg: #fff3d6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17121d;
+    --card: #231b2b;
+    --ink: #f4eef8;
+    --muted: #b9adc4;
+    --accent: #ff7aa6;
+    --link: #ff9fc0;
+    --key: #3a2f47;
+    --key-ink: #f4eef8;
+    --screen: #0e0b12;
+    --help-bg: #33280f;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.phone, .help, footer { max-width: 420px; margin: 0 auto; }
+
+.phone {
+  background: var(--card);
+  border-radius: 28px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.12);
+}
+
+h1 { margin: 0; font-size: 1.7rem; color: var(--accent); text-align: center; }
+h2 { font-size: 1.1rem; margin: 1.2rem 0 0.4rem; }
+.tag { margin: 0.2rem 0 1rem; text-align: center; color: var(--muted); }
+
+.screen {
+  min-height: 7em;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--screen);
+  color: var(--screen-ink);
+  font-size: 1.1rem;
+  white-space: pre-line;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.keypad button, .call {
+  min-height: 56px;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  touch-action: manipulation;
+}
+
+.keypad button {
+  border-radius: 16px;
+  background: var(--key);
+  color: var(--key-ink);
+  font-size: 1.6rem;
+}
+
+.keypad button:active, .call:active { transform: scale(0.95); }
+
+.call {
+  width: 100%;
+  border-radius: 999px;
+  background: var(--call);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+button:focus-visible, a:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+
+.menu { list-style: none; margin: 0; padding: 0; }
+.menu li { display: grid; grid-template-columns: 1.5em 1fr; padding: 0.35rem 0; border-bottom: 1px dashed var(--key); }
+.menu b { color: var(--accent); }
+
+.help {
+  margin-top: 16px;
+  padding: 4px 16px 12px;
+  border-left: 4px solid var(--ring);
+  border-radius: 12px;
+  background: var(--help-bg);
+}
+.help ul { padding-left: 1.2em; margin: 0; }
+
+footer { margin-top: 16px; font-size: 0.85rem; color: var(--muted); text-align: center; }
+a { color: var(--link); }

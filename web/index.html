@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bấm số để nghe lời động viên từ các bạn nhỏ.">
+  <title>Đang tải…</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="phone">
+    <header>
+      <h1 id="brand">…</h1>
+      <p class="tag">Bấm số để nghe lời động viên từ các bạn nhỏ</p>
+    </header>
+
+    <div id="screen" class="screen" aria-live="polite">Bấm "Gọi" để nghe hướng dẫn, hoặc chọn một số bên dưới.</div>
+
+    <div id="keypad" class="keypad" role="group" aria-label="Bàn phím số"></div>
+    <button id="call" class="call" type="button">📞 Gọi</button>
+
+    <section aria-labelledby="menu-title">
+      <h2 id="menu-title">Bấm số…</h2>
+      <ol id="menu" class="menu"></ol>
+    </section>
+  </main>
+
+  <aside class="help" aria-labelledby="help-title">
+    <h2 id="help-title">Cần giúp đỡ ngay?</h2>
+    <p>Trang này chỉ để động viên, không thay thế hỗ trợ chuyên môn. Nếu bạn hoặc ai đó đang gặp nguy hiểm, hãy gọi:</p>
+    <ul id="help"></ul>
+  </aside>
+
+  <footer>
+    <p>Lấy cảm hứng từ <a href="https://www.peptoc.org/hotline" rel="noopener">Peptoc</a>, dự án của học sinh West Side Elementary, Healdsburg, California.</p>
+    <p>Đây là bản demo. Các câu nói là bản phỏng dịch tạm, giọng đọc tạo bằng máy.</p>
+  </footer>
+</body>
+</html>

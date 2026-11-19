@@ -30,8 +30,8 @@ Sau mỗi task phải cập nhật `.kiro/steering/codebase-graph.md`.
     - Kiểm tra: `.venv\Scripts\python -c "import json;json.load(open('web/content.json',encoding='utf-8'))"`
     - _Requirements: 2.1, 2.2, 2.5, 5.1, 5.4, 5.5_
 
-- [ ] 2. Script tạo audio
-  - [ ] 2.1 Viết `tools/gen_audio.py`
+- [x] 2. Script tạo audio
+  - [x] 2.1 Viết `tools/gen_audio.py`
     - Hàm `jobs(content)`: trả về list `(path, text, voice)`, gồm `greeting.mp3` và `<key>/<i>.mp3`
     - Cờ `--force` (ghi đè) và `--dry-run` (chỉ in, không gọi mạng)
     - Mỗi câu chạy trong `try` riêng. Câu lỗi được in ra, chạy tiếp, cuối cùng `sys.exit(1)` nếu có lỗi
@@ -39,29 +39,30 @@ Sau mỗi task phải cập nhật `.kiro/steering/codebase-graph.md`.
     - Kiểm tra: `--dry-run` in đúng số file (số câu + 1)
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
 
-  - [ ] 2.2 Tạo mp3 thật
+  - [x] 2.2 Tạo mp3 thật
     - Chạy `.venv\Scripts\python tools\gen_audio.py`
     - Kiểm tra: số file `.mp3` trong `web/audio` = số câu + 1. Nghe thử 1 file tiếng Việt và 1 file phím 5
     - Chạy lại lần 2 phải thấy "skip" toàn bộ
     - _Requirements: 3.1, 4.1, 4.2, 4.3_
 
-- [ ] 3. Giao diện web
-  - [ ] 3.1 Viết `web/index.html` và `web/style.css`
+- [x] 3. Giao diện web
+  - [x] 3.1 Viết `web/index.html` và `web/style.css`
     - Các id: `brand`, `menu`, `screen` (`aria-live="polite"`), `keypad`, `call`, `help`
     - Footer ghi nguồn Peptoc kèm link và ghi chú bản demo
     - CSS variables, chế độ tối, bàn phím dạng grid 3×4, phím `min-height: 56px`, không dùng tài nguyên ngoài
     - _Requirements: 1.1, 1.2, 2.4, 5.1, 5.2, 5.3, 6.1, 6.2, 6.3, 6.4, 7.2_
 
-  - [ ] 3.2 Viết `web/app.js`
+  - [x] 3.2 Viết `web/app.js`
     - Các hàm `init`, `press`, `pick`, `play`, `speak` theo design
     - Lấy brand từ `content.json` và gán vào `#brand` + `document.title`
     - `keydown` 0–9 gọi `press`. Phím không có nội dung thì hiện thông báo
     - Fetch lỗi thì hiện "Không tải được nội dung — hãy chạy qua http server"
     - _Requirements: 1.3, 1.4, 1.5, 1.6, 2.3, 2.4, 3.1, 3.2, 3.3, 5.4, 5.5_
 
-- [ ] 4. Checkpoint: kiểm tra trên trình duyệt
+- [x] 4. Checkpoint: kiểm tra trên trình duyệt
   - Chạy `.venv\Scripts\python -m http.server 8000 -d web`
   - Làm hết checklist trong design.md mục Testing Strategy. Ghi kết quả vào nhật ký trong codebase-graph.md
+  - Tự động: `D:\Programs\nodejs\node.exe tools\smoke.mjs` (24 kiểm tra)
 
 - [ ] 5. Deploy free
   - [ ] 5.1 Viết `render.yaml`

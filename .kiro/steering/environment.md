@@ -49,3 +49,6 @@ npm install ...               # project không dùng Node
 
 ## Notes
 - Mở `web/index.html` bằng file:// sẽ KHÔNG đọc được content.json (CORS) → luôn chạy qua http.server.
+- Kiểm thử tự động: chạy server ở trên rồi `D:\Programs\nodejs\node.exe tools\smoke.mjs` (Node chỉ dùng cho test, app không dùng Node).
+- PowerShell 5.1: `Get-Content`/`Set-Content` làm hỏng chữ tiếng Việt (đọc ANSI, ghi BOM). Sửa file bằng công cụ Edit/Write hoặc Python `encoding="utf-8"`.
+- edge-tts free hay treo ngẫu nhiên; `gen_audio.py` tự retry. Nếu vẫn FAIL, chạy lại lệnh — file đã có sẽ được bỏ qua.
