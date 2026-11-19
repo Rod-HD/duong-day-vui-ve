@@ -4,13 +4,13 @@
   --card: #FFFDF8;
   --ink: #111111;
   --muted: #5E584D;
-  --blue: #1F4FD8;
-  --blue-deep: #173CA6;
+  --blue: #60A5FA;      /* key visual fill (light blue); text on it is always dark */
+  --blue-ink: #1F4FD8;  /* blue used as TEXT on paper — the light fill would fail contrast */
   --yellow: #FFD23F;
   --pink: #F4A3B4;
   --rule: rgba(17, 17, 17, 0.14);
   --shadow: #111111;
-  --on-blue: #FFFDF8;
+  --on-blue: #111111;
   --hard: 4px 4px 0 var(--shadow);
   --spring: cubic-bezier(0.3, 1.7, 0.5, 1);
   --display: "Arial Black", "Segoe UI Black", "Helvetica Neue", system-ui, sans-serif;
@@ -26,8 +26,7 @@
     --card: #1D2028;
     --ink: #F3EEE4;
     --muted: #B7AFA2;
-    --blue: #3D6BF2;
-    --blue-deep: #2B55D6;
+    --blue-ink: #8FB0FF;
     --rule: rgba(243, 238, 228, 0.16);
     --shadow: #5A6070; /* black would vanish on the dark paper; keep the hard offset visible */
     --pink: #E58FA3;
@@ -50,8 +49,7 @@ body {
 
 .mono { font-family: var(--mono); }
 .hand { font-family: var(--hand); }
-a { color: var(--blue); text-underline-offset: 3px; text-decoration-thickness: 2px; }
-@media (prefers-color-scheme: dark) { a { color: #8FB0FF; } }
+a { color: var(--blue-ink); text-underline-offset: 3px; text-decoration-thickness: 2px; }
 
 /* ---------- texture & background doodles ---------- */
 .grain {
@@ -105,6 +103,8 @@ a { color: var(--blue); text-underline-offset: 3px; text-decoration-thickness: 2
   background: var(--blue); color: var(--on-blue);
   padding: 14px 16px 16px;
 }
+/* inside the light-blue panel, "ink" must stay dark in both themes (sun face, chip text, wave borders) */
+.call > * { --ink: #111111; --card: #FFFDF8; }
 .onair { position: absolute; left: 0; right: 0; top: 0; height: 5px; background: var(--yellow); transform: scaleX(0); transform-origin: left; }
 body[data-state="playing"] .onair { transform: scaleX(1); }
 body[data-state="playing"] .rec i { background: #FF4D3D; }
@@ -116,9 +116,9 @@ body[data-state="ended"] .status::after { content: " ✓"; display: inline-block
 
 .caller { display: grid; grid-template-columns: 92px 1fr; gap: 14px; align-items: center; margin: 14px 0 10px; }
 .mascot { position: relative; width: 92px; height: 92px; }
-.ring { position: absolute; inset: 10px; border: 3px solid var(--yellow); border-radius: 50%; opacity: 0; }
+.ring { position: absolute; inset: 10px; border: 3px solid #FFFDF8; border-radius: 50%; opacity: 0; }
 .sun { position: relative; width: 100%; height: 100%; filter: url(#rough); overflow: visible; }
-.sun .rays path { stroke: var(--yellow); stroke-width: 6; stroke-linecap: round; fill: none; }
+.sun .rays path { stroke: var(--ink); stroke-width: 5; stroke-linecap: round; fill: none; }
 .sun .disc { fill: var(--yellow); stroke: var(--ink); stroke-width: 4; }
 .sun .cheek { fill: var(--pink); opacity: 0.85; }
 .sun .eyes circle { fill: var(--ink); }
@@ -133,8 +133,6 @@ body[data-state="ended"] .status::after { content: " ✓"; display: inline-block
   font: 800 22px/1.25 var(--body); color: var(--on-blue);
 }
 .caption.long { font-size: 15px; font-weight: 600; line-height: 1.45; }
-/* yellow on blue only passes AA as large text, so long (small) captions stay white */
-body[data-state="playing"] .caption:not(.long) { color: var(--yellow); }
 
 .wave { display: flex; align-items: flex-end; justify-content: center; gap: 7px; height: 34px; }
 .wave i {
@@ -146,9 +144,8 @@ body[data-state="playing"] .caption:not(.long) { color: var(--yellow); }
 
 /* ---------- keypad ---------- */
 .pad { position: relative; }
-.hint { position: absolute; right: 2px; top: -34px; margin: 0; font-size: 17px; color: var(--blue); transform: rotate(-5deg); display: flex; align-items: center; gap: 2px; pointer-events: none; }
-.hint svg { width: 46px; height: 32px; fill: none; stroke: var(--blue); stroke-width: 2.6; stroke-linecap: round; filter: url(#rough); transform: scaleX(-1) rotate(10deg); }
-@media (prefers-color-scheme: dark) { .hint, .hint svg { color: #8FB0FF; stroke: #8FB0FF; } }
+.hint { position: absolute; right: 2px; top: -34px; margin: 0; font-size: 17px; color: var(--blue-ink); transform: rotate(-5deg); display: flex; align-items: center; gap: 2px; pointer-events: none; }
+.hint svg { width: 46px; height: 32px; fill: none; stroke: var(--blue-ink); stroke-width: 2.6; stroke-linecap: round; filter: url(#rough); transform: scaleX(-1) rotate(10deg); }
 body.touched .hint { opacity: 0; transform: rotate(-5deg) translateY(-6px); transition: opacity 0.4s, transform 0.4s; }
 
 .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -233,10 +230,9 @@ body.touched .hint { opacity: 0; transform: rotate(-5deg) translateY(-6px); tran
   background: var(--yellow); border-radius: 3px 10px 4px 12px / 9px 3px 11px 4px;
   transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease-out;
 }
-.menu .now { display: none; font: 15px/1 var(--hand); color: var(--blue); transform: rotate(-4deg); white-space: nowrap; }
+.menu .now { display: none; font: 15px/1 var(--hand); color: var(--blue-ink); transform: rotate(-4deg); white-space: nowrap; }
 .menu .now i { display: inline-block; width: 3px; height: 12px; margin-right: 2px; background: currentColor; border-radius: 1px; transform: scaleY(0.6); transform-origin: bottom; }
 .menu .now i:nth-child(3) { margin-right: 6px; }
-@media (prefers-color-scheme: dark) { .menu .now { color: #8FB0FF; } }
 .menu button.active .label::before { transform: scaleX(1); }
 .menu button.active .label { color: #111; }
 .menu button.active .num { background: var(--yellow); color: #111; }
@@ -284,7 +280,7 @@ footer p { margin: 0 0 6px; }
 .particle.c2 { color: var(--pink); }
 
 /* ---------- focus ---------- */
-:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--blue-ink); outline-offset: 3px; }
 @media (prefers-color-scheme: dark) { :focus-visible { outline-color: var(--yellow); } }
 
 /* ---------- desktop: phone frame + side column ---------- */

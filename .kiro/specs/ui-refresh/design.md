@@ -19,7 +19,8 @@ Bảng màu (2 màu mực, xanh dương là chủ đạo):
 
 | Vai trò | Màu |
 |---|---|
-| Xanh cobalt | `#1F4FD8` |
+| Xanh key visual, xanh nhạt (user yêu cầu 2026-11-20). Chữ đặt trên màu này luôn là mực đen | `#60A5FA` |
+| Xanh dùng làm chữ hoặc link trên nền giấy (`--blue-ink`) | `#1F4FD8` (dark mode: `#8FB0FF`) |
 | Vàng hướng dương | `#FFD23F` |
 | Mực đen | `#111` |
 | Giấy | `#F6F1E7` |

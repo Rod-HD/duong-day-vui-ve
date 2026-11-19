@@ -1,6 +1,6 @@
 // Offline support: network-first (always fresh when online), cache fallback when offline.
 // Bump CACHE when the list of shell files changes.
-const CACHE = "ddvv-v1";
+const CACHE = "ddvv-v2";
 const SHELL = ["./", "index.html", "style.css", "app.js", "content.json", "manifest.webmanifest",
   "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png", "qr.svg", "poster.html"];
 

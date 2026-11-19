@@ -52,6 +52,7 @@ graph TD
 - Việc mở cho sau: thay câu nói thật / xin phép Peptoc, thu âm giọng trẻ em (đặc biệt phím 4), tên chính thức, chatbot Messenger (0đ) nếu cần kênh nhắn tin, số tổng đài thật (có phí).
 
 ## 4. Nhật ký tiến độ (mới nhất ở trên)
+- 2026-11-20 — Key visual đổi sang xanh nhạt `--blue: #60A5FA` (theme-color, manifest, icon, poster). Chữ trên nền xanh = mực `#111` (`.call > *` ép `--ink/--card` cố định cho cả dark mode); chữ/link xanh trên giấy dùng `--blue-ink` `#1F4FD8`/`#8FB0FF`. Tia nắng mascot + icon đổi sang mực. SW cache → `ddvv-v2`. Smoke 45/45.
 - 2026-11-20 — ui-refresh task 5 xong: Render tự deploy 0e4a26a, smoke.mjs trên link live 45/45 PASS.
 - 2026-11-20 — ui-refresh task 1–4 xong: user đổi màu chủ đạo xanh dương + yêu cầu UI "như người làm" → phong cách neo-brutalist (Gumroad) × risograph zine; PWA (manifest, sw, icons), QR + poster; smoke 45/45 ×3. Lỗi tìm được nhờ test: hạt burst kẹt khi tắt motion giữa chừng → dọn bằng timer. Windows máy này bật reduced-motion → smoke ép `no-preference`.- 2026-11-20 — Spec mới `ui-refresh` (CHỜ USER DUYỆT): thiết kế Stitch project 13630802284968747190 (ảnh: `.kiro/specs/ui-refresh/stitch-mockup.png`). Bỏ khỏi bản code: ảnh trẻ em thật, tên "Bé An" bịa, tab giả, Google Fonts.
 - 2026-11-20 — Task 5.3 + 6 xong: agent tạo Blueprint trên Render qua Chrome (user tự đăng nhập). Live commit 65b57eb, smoke.mjs trên link thật 24/24 PASS.
