@@ -36,4 +36,4 @@ Làm theo thứ tự dữ liệu → khung HTML → CSS và animation → logic 
   - [x] 4.2 Chụp ảnh 360px (sáng, tối, đang phát), 1280px và poster, rồi xem bằng mắt
     - _Requirements: 1.1, 1.3, 5.5_
 
-- [ ] 5. Checkpoint: push → Render tự deploy → chạy smoke.mjs trên link live → PASS
+- [x] 5. Checkpoint: push → Render tự deploy → chạy smoke.mjs trên link live → 45/45 PASS (commit 0e4a26a)
