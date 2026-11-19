@@ -125,4 +125,4 @@ Dùng SIM cá nhân với modem 4G và Asterisk thì không tốn phí thuê bao
 
 - 111: Tổng đài quốc gia bảo vệ trẻ em
 - 115: Cấp cứu
-- 096 306 1414: Đường dây Ngày Mai, hỗ trợ trầm cảm. **Gọi thử để xác nhận số còn hoạt động trước khi công khai.**
+- 096 306 1414: Đường dây Ngày Mai, hỗ trợ trầm cảm. Miễn phí, trực 13h00–20h30 từ thứ 4 đến Chủ nhật. Nguồn: [duongdaynongngaymai.vn](https://duongdaynongngaymai.vn/). **Nên gọi thử hoặc liên hệ hotlinengaymai@gmail.com để xác nhận số và giờ trực trước khi công khai.**
