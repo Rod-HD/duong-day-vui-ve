@@ -57,7 +57,7 @@ check("brand + title", (await ev(`document.getElementById("brand").textContent`)
 check("menu has 8 items (1-7,0)", (await ev(`document.querySelectorAll("#menu li").length`)) === 8);
 check("keypad 12 buttons", (await ev(`[...document.querySelectorAll("#keypad button")].map(b=>b.textContent).join("")`)) === "123456789*0#");
 check("keys have aria-label", await ev(`[...document.querySelectorAll("#keypad button")].every(b => b.getAttribute("aria-label")?.startsWith("Phím "))`));
-check("help has public tel links only", (await ev(`[...document.querySelectorAll("#help a")].map(a=>a.getAttribute("href")).join()`)) === "tel:111,tel:115");
+check("no phone numbers on page", (await ev(`document.querySelectorAll('a[href^="tel:"]').length`)) === 0 && !/\b1[01]\d\b|\d{3}\s?\d{3}\s?\d{4}/.test(await ev("document.body.innerText")));
 check("screen aria-live polite", (await ev(`document.getElementById("screen").getAttribute("aria-live")`)) === "polite");
 const keyH = await ev(`Math.min(...[...document.querySelectorAll("#keypad button")].map(b => Math.min(b.offsetWidth, b.offsetHeight)))`);
 check("touch target >= 48px", keyH >= 48, `min side ${keyH}px`);

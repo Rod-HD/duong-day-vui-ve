@@ -23,10 +23,10 @@ Sau mỗi task phải cập nhật `.kiro/steering/codebase-graph.md`.
     - _Requirements: 4.5_
 
   - [x] 1.2 Viết `web/content.json`
-    - Các field: `brand`, `note`, `voice`, `greeting`, `options` (0–7), `help`
+    - Các field: `brand`, `note`, `voice`, `lang`, `greeting`, `options` (0–7)
     - Phím 1–7 có ≥3 câu tiếng Việt viết lại theo tinh thần menu Peptoc. Phím 5 viết tiếng Anh, `voice` = `en-US-AnaNeural`, `lang` = `en-US`
     - Phím 0 có lời cảm ơn và `info` = "Thông tin ủng hộ: đang cập nhật."
-    - `help`: 111, 115 (chỉ số công cộng)
+    - Không có số điện thoại nào (quyết định 2026-11-20)
     - Kiểm tra: `.venv\Scripts\python -c "import json;json.load(open('web/content.json',encoding='utf-8'))"`
     - _Requirements: 2.1, 2.2, 2.5, 5.1, 5.4, 5.5_
 
@@ -47,7 +47,7 @@ Sau mỗi task phải cập nhật `.kiro/steering/codebase-graph.md`.
 
 - [x] 3. Giao diện web
   - [x] 3.1 Viết `web/index.html` và `web/style.css`
-    - Các id: `brand`, `menu`, `screen` (`aria-live="polite"`), `keypad`, `call`, `help`
+    - Các id: `brand`, `menu`, `screen` (`aria-live="polite"`), `keypad`, `call`
     - Footer ghi nguồn Peptoc kèm link và ghi chú bản demo
     - CSS variables, chế độ tối, bàn phím dạng grid 3×4, phím `min-height: 56px`, không dùng tài nguyên ngoài
     - _Requirements: 1.1, 1.2, 2.4, 5.1, 5.2, 5.3, 6.1, 6.2, 6.3, 6.4, 7.2_

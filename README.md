@@ -22,7 +22,7 @@ Trang web giả lập một đường dây nóng. Người dùng bấm số trê
 ```
 web/                 ← thư mục deploy (site tĩnh, không backend)
   index.html  style.css  app.js
-  content.json       ← nơi DUY NHẤT chứa tên, câu nói, số khẩn cấp
+  content.json       ← nơi DUY NHẤT chứa tên và câu nói
   audio/greeting.mp3, audio/<phím>/<thứ tự>.mp3
 tools/gen_audio.py   ← tạo mp3 từ content.json bằng edge-tts
 render.yaml          ← cấu hình deploy free lên Render
@@ -121,11 +121,8 @@ Dùng SIM cá nhân với modem 4G và Asterisk thì không tốn phí thuê bao
 - Mỗi SIM chỉ nhận một cuộc gọi tại một thời điểm.
 - Máy phải bật 24/7.
 
-## Số khẩn cấp hiển thị trên trang
+## Số điện thoại
 
-- 111: Tổng đài quốc gia bảo vệ trẻ em
-- 115: Cấp cứu
-
-Đây là 2 tổng đài công cộng của nhà nước. Trang **không** đưa số của tổ chức tư nhân nào, ví dụ các đường dây hỗ trợ tâm lý. Nếu muốn thêm số của một tổ chức, cần xin phép họ trước, rồi thêm vào mục `help` trong `web/content.json`.
+Trang **không hiển thị số điện thoại nào**. Khối "Cần giúp đỡ ngay?" chỉ có một câu nhắc chung (sửa trong `web/index.html`). Nếu sau này muốn thêm số của một tổ chức, cần xin phép họ trước.
 
 Bản demo này chưa có số điện thoại riêng của dự án. Trang web chính là "đường dây". Khi nào có số tổng đài thật, xem mục "Khi cần số điện thoại thật" ở trên.

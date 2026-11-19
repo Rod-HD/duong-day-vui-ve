@@ -11,8 +11,8 @@ inclusion: always
 
 ```mermaid
 graph TD
-    C[web/content.json<br/>brand, voice, lang, greeting, options 0-7, help] -->|fetch| A[web/app.js]
-    H[web/index.html<br/>ids: brand screen keypad call menu help] -->|defer| A
+    C[web/content.json<br/>brand, voice, lang, greeting, options 0-7] -->|fetch| A[web/app.js]
+    H[web/index.html<br/>ids: brand screen keypad call menu] -->|defer| A
     H --> S[web/style.css]
     A -->|new Audio| M[web/audio/greeting.mp3<br/>web/audio/KEY/N.mp3 — 25 file]
     A -->|onerror| T[speechSynthesis]
@@ -28,8 +28,8 @@ graph TD
 
 | File | Vai trò | Symbol chính | Phụ thuộc |
 |---|---|---|---|
-| `web/content.json` | Nguồn DUY NHẤT: tên (`brand`), menu, 24 câu, số khẩn cấp | `options[key].{label,messages,voice?,lang?,info?}`, `{brand}` placeholder | — |
-| `web/index.html` | Khung trang, footer ghi nguồn Peptoc + ghi chú demo, khối "Cần giúp đỡ ngay?" | id `brand screen(aria-live) keypad call menu help` | style.css, app.js |
+| `web/content.json` | Nguồn DUY NHẤT: tên (`brand`), menu, 24 câu (KHÔNG có số điện thoại) | `options[key].{label,messages,voice?,lang?,info?}`, `{brand}` placeholder | — |
+| `web/index.html` | Khung trang, footer ghi nguồn Peptoc + ghi chú demo, khối "Cần giúp đỡ ngay?" (chữ tĩnh, không số) | id `brand screen(aria-live) keypad call menu` | style.css, app.js |
 | `web/style.css` | CSS variables, dark mode, phím ≥56px, max-width 420px | `:root` tokens | — |
 | `web/app.js` | Nạp JSON, vẽ UI, phím click + keydown, phát mp3 → TTS → phụ đề | `init render press pick play speak stop fill`; global `audio`, `last` | content.json, audio/ |
 | `web/audio/` | 25 mp3 TTS (≈824KB). Thay giọng thật = chép đè cùng tên | `greeting.mp3`, `<key>/<index+1>.mp3` | gen_audio.py |
@@ -46,6 +46,7 @@ graph TD
 - Task kế tiếp: 5.3 deploy Render — CHỜ USER: đăng nhập render.com bằng GitHub → New → Blueprint → repo `duong-day-vui-ve` → Apply. Sau đó agent kiểm link `*.onrender.com` bằng smoke.mjs rồi đánh dấu 5.3 + 6.
 
 ## 4. Nhật ký tiến độ (mới nhất ở trên)
+- 2026-11-20 — Theo yêu cầu user: xoá luôn 111 và 115 → trang KHÔNG có số điện thoại nào. Bỏ `help` khỏi content.json, app.js, index.html; Req 5.1 đổi thành "SHALL NOT hiển thị số"; smoke test kiểm không có `tel:`.
 - 2026-11-20 — Theo yêu cầu user: GỠ số Ngày Mai (số của tổ chức khác, chưa xin phép). Khối help chỉ còn 111, 115. Sửa Req 5.1, design, tasks, README, smoke test.
 - 2026-11-19 — Task 5.1 + 5.2 xong: render.yaml, README (chạy, test, sửa câu, giọng thật, đổi tên, deploy Render/Cloudflare, bảng giới hạn + giá). web/ = 835KB (< 50MB). Đã push GitHub.
 - 2026-11-19 — Task 3 + 4 xong: index.html/style.css/app.js; smoke test 24/24 PASS (ổn định 3 lần), xem ảnh 360px sáng/tối OK. Thêm `tools/smoke.mjs`.

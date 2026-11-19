@@ -2,7 +2,7 @@
 
 ## Overview
 
-Site tĩnh gồm 3 file web (`index.html`, `style.css`, `app.js`) và 1 file dữ liệu `content.json`. Không có framework, không có bước build. Khi trang tải, `app.js` đọc `content.json`, sau đó vẽ tên, menu, bàn phím và khối khẩn cấp. Khi người dùng bấm phím, trang phát `audio/<phím>/<n>.mp3`. Nếu thiếu file, trang dùng `speechSynthesis` của trình duyệt. Nếu trình duyệt cũng không đọc được, trang chỉ hiện phụ đề (Req 1, 2, 3).
+Site tĩnh gồm 3 file web (`index.html`, `style.css`, `app.js`) và 1 file dữ liệu `content.json`. Không có framework, không có bước build. Khi trang tải, `app.js` đọc `content.json`, sau đó vẽ tên, menu và bàn phím. Khối "Cần giúp đỡ ngay?" là chữ tĩnh trong HTML, không có số điện thoại. Khi người dùng bấm phím, trang phát `audio/<phím>/<n>.mp3`. Nếu thiếu file, trang dùng `speechSynthesis` của trình duyệt. Nếu trình duyệt cũng không đọc được, trang chỉ hiện phụ đề (Req 1, 2, 3).
 
 Toàn bộ mp3 được tạo trước, offline, bằng `tools/gen_audio.py` chạy trong `.venv` với edge-tts (Req 4). Web không gọi dịch vụ ngoài nào. Thay giọng thật chỉ cần chép đè mp3 cùng tên, vì script bỏ qua file đã có (Req 3.4, 4.3).
 
@@ -12,7 +12,7 @@ Thư mục deploy duy nhất là `web/`. Đẩy lên GitHub Pages hoặc Cloudfl
 
 ```mermaid
 graph TD
-    C[web/content.json<br/>brand, menu, messages, help] --> A[web/app.js]
+    C[web/content.json<br/>brand, menu, messages] --> A[web/app.js]
     H[web/index.html] --> A
     H --> S[web/style.css]
     A -->|play| M[web/audio/**.mp3]
@@ -26,7 +26,7 @@ graph TD
 ## Components
 
 ### Component 1: content.json
-- **Responsibility**: Nơi duy nhất chứa tên hiển thị, menu, lời nhắn và số khẩn cấp.
+- **Responsibility**: Nơi duy nhất chứa tên hiển thị, menu và lời nhắn.
 - **Inputs**: nhóm dự án sửa tay.
 - **Outputs**: JSON, được `app.js` và `gen_audio.py` đọc.
 - **Maps to**: Req 2.1, 2.2, 2.5, 5.1, 5.4, 5.5
@@ -41,7 +41,7 @@ graph TD
   - khối "Cần giúp đỡ ngay?"
   - footer (ghi nguồn Peptoc, ghi chú demo)
 - **Inputs**: Không có.
-- **Outputs**: DOM có các id cố định: `brand`, `menu`, `screen`, `keypad`, `call`, `help`.
+- **Outputs**: DOM có các id cố định: `brand`, `menu`, `screen`, `keypad`, `call`.
 - **Maps to**: Req 1.1, 1.2, 2.4, 5.1–5.3, 6.1–6.4
 - **File**: `web/index.html`, `web/style.css`
 - **Ghi chú**: dùng CSS variables. Chế độ tối dùng `@media (prefers-color-scheme: dark)`. Mỗi phím có kích thước tối thiểu `min-height: 56px`. Không dùng font hay script ngoài (Req 7.2).
@@ -94,11 +94,8 @@ graph TD
     "1": { "label": "Nếu bạn đang bực bội, nản lòng hay lo lắng", "messages": ["...", "...", "..."] },
     "5": { "label": "Lời cổ vũ bằng tiếng Anh", "voice": "en-US-AnaNeural", "lang": "en-US", "messages": ["..."] },
     "0": { "label": "Ủng hộ dự án", "messages": ["Cảm ơn bạn ..."], "info": "Thông tin ủng hộ: đang cập nhật." }
-  },
-  "help": [
-    { "name": "Tổng đài quốc gia bảo vệ trẻ em", "phone": "111" },
-    { "name": "Cấp cứu", "phone": "115" } // chỉ số công cộng; số tổ chức tư nhân cần xin phép
-  ]
+  }
+  // Không có số điện thoại nào trên trang (quyết định 2026-11-20).
 }
 ```
 

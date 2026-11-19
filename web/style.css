@@ -109,7 +109,6 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ring); outline-
   border-radius: 12px;
   background: var(--help-bg);
 }
-.help ul { padding-left: 1.2em; margin: 0; }
 
 footer { margin-top: 16px; font-size: 0.85rem; color: var(--muted); text-align: center; }
 a { color: var(--link); }

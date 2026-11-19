@@ -75,12 +75,6 @@ function render() {
     $("keypad").append(b);
   }
 
-  for (const h of content.help) {
-    const li = el("li");
-    li.append(el("a", h.display || h.phone, { href: `tel:${h.phone}` }), ` — ${h.name}`);
-    $("help").append(li);
-  }
-
   $("call").addEventListener("click", () => play("audio/greeting.mp3", fill(content.greeting), content.lang));
   document.addEventListener("keydown", (e) => {
     if (e.repeat || e.ctrlKey || e.metaKey || e.altKey) return;

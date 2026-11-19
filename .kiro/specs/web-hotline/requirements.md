@@ -20,7 +20,7 @@ Phiên bản demo dùng câu nói phỏng theo tinh thần menu của Peptoc, d�
 - **content.json**: file dữ liệu duy nhất chứa menu và toàn bộ lời nhắn.
 - **edge-tts**: thư viện Python miễn phí dùng giọng đọc của Microsoft Edge để tạo file mp3. Đây là dịch vụ không chính thức.
 - **Giọng thật**: file mp3 thu âm trẻ em, thay thế file TTS cùng tên.
-- **Đường dây hỗ trợ khẩn cấp**: số điện thoại hỗ trợ khủng hoảng/tâm lý thật ở Việt Nam, hiển thị trên trang để an toàn cho người dùng.
+- **Khối "Cần giúp đỡ ngay?"**: lời nhắc an toàn trên trang, không chứa số điện thoại.
 
 ## Requirements
 
@@ -86,7 +86,7 @@ Phiên bản demo dùng câu nói phỏng theo tinh thần menu của Peptoc, d�
 
 #### Acceptance Criteria
 
-1. THE Hotline Web SHALL hiển thị khối "Cần giúp đỡ ngay?" với các số khẩn cấp Việt Nam (111 Tổng đài quốc gia bảo vệ trẻ em, 115 cấp cứu). Chỉ dùng tổng đài công cộng; số của tổ chức tư nhân chỉ thêm khi đã được họ cho phép.
+1. THE Hotline Web SHALL hiển thị khối "Cần giúp đỡ ngay?" nhắc rằng trang không thay thế hỗ trợ chuyên môn và khuyên tìm người thân hoặc cơ sở y tế. THE Hotline Web SHALL NOT hiển thị số điện thoại nào (theo quyết định của chủ dự án, 2026-11-20).
 2. THE Hotline Web SHALL ghi "Lấy cảm hứng từ Peptoc (peptoc.org), dự án của học sinh West Side Elementary, Healdsburg, California" kèm link.
 3. THE Hotline Web SHALL ghi rõ đây là bản demo, câu nói là bản phỏng dịch tạm.
 4. WHEN người dùng bấm Phím 0, THE Hotline Web SHALL phát lời cảm ơn và hiện thông tin ủng hộ (demo: "đang cập nhật").
