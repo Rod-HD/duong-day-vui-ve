@@ -1,0 +1,81 @@
+{
+  "brand": "Đường Dây Vui Vẻ",
+  "note": "Câu demo viết lại theo tinh thần menu Peptoc hotline (peptoc.org/hotline), chưa phải bản dịch nguyên văn. Phải thay câu hoặc xin phép Peptoc trước khi công khai. Mỗi câu ứng với file audio/<phím>/<thứ tự>.mp3 — chèn câu vào giữa thì phải tạo lại audio.",
+  "voice": "vi-VN-HoaiMyNeural",
+  "lang": "vi-VN",
+  "greeting": "Xin chào! Bạn đã gọi tới {brand}, nơi các bạn nhỏ gửi lời động viên đến bạn. Bấm 1 nếu bạn đang bực bội, nản lòng hay lo lắng. Bấm 2 để nghe lời khuyên cuộc sống. Bấm 3 để nghe các bé mẫu giáo cổ vũ. Bấm 4 để nghe tiếng cười của trẻ em. Bấm 5 để nghe lời cổ vũ bằng tiếng Anh. Bấm 6 để nghe bạn trông tuyệt vời thế nào. Bấm 7 để nghe thêm lời khuyên. Bấm 0 để ủng hộ dự án.",
+  "options": {
+    "1": {
+      "label": "Nếu bạn đang bực bội, nản lòng hay lo lắng",
+      "messages": [
+        "Nếu bạn đang bực mình, hãy hít thật sâu, đếm đến mười, rồi thở ra thật chậm nhé. Bạn làm được mà!",
+        "Lo lắng cũng không sao đâu. Bạn ra ngoài nhìn bầu trời một chút, rồi mọi chuyện sẽ ổn hơn.",
+        "Nếu ai đó làm bạn buồn, hãy kể cho người bạn tin tưởng nghe. Nói ra sẽ nhẹ lòng hơn đó.",
+        "Khi nản quá thì mình đi uống một ly nước, ăn một món ngon, rồi thử lại lần nữa!"
+      ]
+    },
+    "2": {
+      "label": "Lời khuyên cuộc sống",
+      "messages": [
+        "Hãy ăn rau nhé, rau giúp bạn khỏe và vui hơn.",
+        "Nếu bạn làm sai, cứ nói xin lỗi rồi làm lại. Ai cũng có lúc sai mà.",
+        "Hãy ngủ đủ giấc. Ngủ ngon thì sáng mai sẽ vui hơn.",
+        "Hãy đối xử tốt với mọi người, kể cả khi họ chưa tốt với bạn."
+      ]
+    },
+    "3": {
+      "label": "Các bé mẫu giáo cổ vũ bạn",
+      "messages": [
+        "Bạn giỏi lắm! Cố lên nha!",
+        "Con tin bạn làm được! Cố lên, cố lên!",
+        "Bạn là người tuyệt nhất! Thương bạn nhiều!"
+      ]
+    },
+    "4": {
+      "label": "Tiếng cười giòn tan của trẻ em",
+      "messages": [
+        "Hi hi hi! Ha ha ha!",
+        "Ha ha ha ha! Hi hi!",
+        "Hí hí hí! Ha ha ha ha!"
+      ]
+    },
+    "5": {
+      "label": "Lời cổ vũ bằng tiếng Anh",
+      "voice": "en-US-AnaNeural",
+      "lang": "en-US",
+      "messages": [
+        "You are awesome! Keep going!",
+        "You can do it! I believe in you!",
+        "Don't give up. Tomorrow will be a better day!"
+      ]
+    },
+    "6": {
+      "label": "Nghe xem bạn trông tuyệt vời thế nào",
+      "messages": [
+        "Hôm nay bạn trông xinh lắm luôn!",
+        "Kiểu tóc của bạn đẹp quá trời!",
+        "Nụ cười của bạn làm cả ngày sáng bừng lên!"
+      ]
+    },
+    "7": {
+      "label": "Thêm lời khuyên",
+      "messages": [
+        "Nếu bạn thấy buồn, hãy ôm một người bạn thương.",
+        "Đừng ngại hỏi khi bạn không biết. Hỏi là cách để học.",
+        "Mỗi ngày hãy làm một việc tốt nhỏ, ví dụ như mỉm cười với ai đó."
+      ]
+    },
+    "0": {
+      "label": "Ủng hộ dự án",
+      "messages": [
+        "Cảm ơn bạn đã muốn ủng hộ {brand}! Thông tin ủng hộ đang được cập nhật."
+      ],
+      "info": "Thông tin ủng hộ: đang cập nhật."
+    }
+  },
+  "help": [
+    { "name": "Tổng đài quốc gia bảo vệ trẻ em", "phone": "111" },
+    { "name": "Cấp cứu", "phone": "115" },
+    { "name": "Đường dây Ngày Mai (hỗ trợ trầm cảm)", "phone": "0963061414", "display": "096 306 1414" }
+  ]
+}

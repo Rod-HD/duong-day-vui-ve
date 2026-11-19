@@ -15,14 +15,14 @@ Sau mỗi task phải cập nhật `.kiro/steering/codebase-graph.md`.
 
 ## Tasks
 
-- [ ] 1. Môi trường và nội dung
+- [x] 1. Môi trường và nội dung
   - [x] 1.1 Tạo `.venv` và cài edge-tts
     - Tạo venv bằng Python ở đường dẫn trong environment.md (KHÔNG dùng `python` trên PATH), sau đó `.venv\Scripts\python -m pip install edge-tts`
     - Kiểm tra: `.venv\Scripts\python -c "import edge_tts"` chạy không lỗi
     - Tạo `requirements.txt` gồm 1 dòng `edge-tts`
     - _Requirements: 4.5_
 
-  - [ ] 1.2 Viết `web/content.json`
+  - [x] 1.2 Viết `web/content.json`
     - Các field: `brand`, `note`, `voice`, `greeting`, `options` (0–7), `help`
     - Phím 1–7 có ≥3 câu tiếng Việt viết lại theo tinh thần menu Peptoc. Phím 5 viết tiếng Anh, `voice` = `en-US-AnaNeural`, `lang` = `en-US`
     - Phím 0 có lời cảm ơn và `info` = "Thông tin ủng hộ: đang cập nhật."
